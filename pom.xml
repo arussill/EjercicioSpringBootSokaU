@@ -11,7 +11,7 @@
 	<groupId>com.crud</groupId>
 	<artifactId>democrud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>democrud</name>
+	<name>democru d</name>
 	<description>democrud de tabla mysql</description>
 	<properties>
 		<java.version>11</java.version>
