@@ -16,18 +16,10 @@ public class UsuarioModel {
     private String email;
     private Integer prioridad;
 
-    //    Relacion entre tablas
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-
-    @JoinTable(
-            name = "usuario_rol",
-            joinColumns = {@JoinColumn(name = "usuario_id")},
-            inverseJoinColumns = {@JoinColumn(name = "rol_id")}
-    )
-    private Set<UsuarioRolModel> rol;
+    //    Relacion
+    @ManyToOne()
+    @JoinColumn(name = "university_id")
+    private University university;
 
     //    Constructor
     public UsuarioModel(String nombre, String email, Integer prioridad) {
@@ -68,7 +60,6 @@ public class UsuarioModel {
     public String getEmail() {
         return email;
     }
-
 
     public void setEmail(String email) {
         this.email = email;

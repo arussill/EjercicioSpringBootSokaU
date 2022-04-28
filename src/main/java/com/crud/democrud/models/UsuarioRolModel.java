@@ -3,6 +3,7 @@ package com.crud.democrud.models;
 import javax.persistence.*;
 import java.util.Set;
 
+
 @Entity
 @Table(name = "rol")
 public class UsuarioRolModel {
@@ -15,10 +16,10 @@ public class UsuarioRolModel {
     private String rol;
     private String descripcion;
 
-//    Relacion entre tablas
-
-    @ManyToMany(mappedBy = "rol")
-    private Set<UsuarioModel> usuario;
+    //    Relacion entre tablas
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "usuario_rol",unique = true)
+    private Set<UsuarioModel> id;
 
     //    Constructores
     public UsuarioRolModel() {
@@ -36,15 +37,11 @@ public class UsuarioRolModel {
         return id_rol;
     }
 
-    public void setIdRol(Long id_rol) {
-        this.id_rol = id_rol;
-    }
-
-    public String getRoll() {
+    public String getRol() {
         return rol;
     }
 
-    public void setRoll(String rol) {
+    public void setRol(String rol) {
         this.rol = rol;
     }
 
@@ -54,5 +51,13 @@ public class UsuarioRolModel {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Set<UsuarioModel> getId() {
+        return id;
+    }
+
+    public void setId(Set<UsuarioModel> id) {
+        this.id = id;
     }
 }
