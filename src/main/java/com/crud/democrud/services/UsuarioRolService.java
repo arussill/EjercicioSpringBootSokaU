@@ -17,4 +17,21 @@ public class UsuarioRolService {
     public ArrayList<UsuarioRolModel> obtenerRolesDeUsuarios() {
         return (ArrayList<UsuarioRolModel>) usuarioRolRepository.findAll();
     }
+
+    public UsuarioRolModel guardarRol(UsuarioRolModel rol) {
+        return usuarioRolRepository.save(rol);
+    }
+
+    public Optional<UsuarioRolModel> rolPorId(Long id_rol) {
+        return usuarioRolRepository.findById(id_rol);
+    }
+
+    public boolean eliminarRol(Long id_rol) {
+        try {
+            usuarioRolRepository.deleteById(id_rol);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
+    }
 }
