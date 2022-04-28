@@ -1,6 +1,7 @@
 package com.crud.democrud.models;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "usuario")
@@ -14,6 +15,21 @@ public class UsuarioModel {
     private String nombre;
     private String email;
     private Integer prioridad;
+
+//    Relacion entre tablas
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+
+    @JoinTable(
+            name = "usuario_rol",
+            joinColumns = {@JoinColumn(name = "usuario_id")},
+            inverseJoinColumns = {@JoinColumn(name = "rol_id")}
+    )
+    private Set<UsuarioRolModel> rol;
+
+//    Getters and Setters
 
     public void setPrioridad(Integer prioridad) {
         this.prioridad = prioridad;
