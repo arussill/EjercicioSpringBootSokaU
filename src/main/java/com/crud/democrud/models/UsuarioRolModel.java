@@ -20,6 +20,16 @@ public class UsuarioRolModel {
     @ManyToMany(mappedBy = "rol")
     private Set<UsuarioModel> usuario;
 
+    //    Constructores
+    public UsuarioRolModel() {
+
+    }
+
+    public UsuarioRolModel(Long id_rol, String rol, String descripcion) {
+        this.id_rol = id_rol;
+        this.rol = rol;
+        this.descripcion = descripcion;
+    }
 //    Getters and Setters
 
     public Long getIdRol() {

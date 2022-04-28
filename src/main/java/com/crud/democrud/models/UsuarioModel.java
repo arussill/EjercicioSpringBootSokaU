@@ -16,7 +16,7 @@ public class UsuarioModel {
     private String email;
     private Integer prioridad;
 
-//    Relacion entre tablas
+    //    Relacion entre tablas
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
@@ -29,6 +29,16 @@ public class UsuarioModel {
     )
     private Set<UsuarioRolModel> rol;
 
+    //    Constructor
+    public UsuarioModel(String nombre, String email, Integer prioridad) {
+        this.nombre = nombre;
+        this.email = email;
+        this.prioridad = prioridad;
+    }
+
+    public UsuarioModel() {
+
+    }
 //    Getters and Setters
 
     public void setPrioridad(Integer prioridad) {
@@ -59,15 +69,6 @@ public class UsuarioModel {
         return email;
     }
 
-    public UsuarioModel(String nombre, String email, Integer prioridad) {
-        this.nombre = nombre;
-        this.email = email;
-        this.prioridad = prioridad;
-    }
-
-    public UsuarioModel() {
-
-    }
 
     public void setEmail(String email) {
         this.email = email;
