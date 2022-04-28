@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/usuarioRol")
+@RequestMapping("/rol")
 public class UsuarioRolController {
     @Autowired
     UsuarioRolService usuarioRolService;
@@ -20,6 +20,31 @@ public class UsuarioRolController {
     @GetMapping()
     public ArrayList<UsuarioRolModel> obtenerRolesDeUsuarios() {
         return usuarioRolService.obtenerRolesDeUsuarios();
+    }
+
+    @PostMapping()
+    public UsuarioRolModel guardarRol(@RequestBody UsuarioRolModel rol) {
+        return this.usuarioRolService.guardarRol(rol);
+    }
+
+    @GetMapping(path = "/{id_rol}")
+    public Optional<UsuarioRolModel> rolPorId(@PathVariable("id_rol") Long id_rol) {
+        return this.usuarioRolService.rolPorId(id_rol);
+    }
+
+    @DeleteMapping(path = "/{id_rol}")
+    public String eliminarPorId(@PathVariable("id_rol") Long id_rol) {
+        boolean ok = this.usuarioRolService.eliminarRol(id_rol);
+        if (ok) {
+            return "Se eliminó el rol con id " + id_rol;
+        } else {
+            return "No pudo eliminar el rol con id" + id_rol;
+        }
+    }
+
+    @PutMapping(path ="/actualizar")
+    public UsuarioRolModel actualizarRol(@RequestBody UsuarioRolModel rol) {
+        return this.usuarioRolService.guardarRol(rol);
     }
 
 }
