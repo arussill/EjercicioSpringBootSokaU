@@ -13,7 +13,7 @@ Ejercicio realizado en la sesión sincrónica de Spring Boot.
 
 ![actualizar](https://user-images.githubusercontent.com/71297040/165693055-75719f5c-7af9-4b33-af81-744f5a4f8f97.png)
 
--Relación ManyToMany
+-Relación ManyToMany: escogí esta relación dado a que un usuario puede tener muchos roles y un rol puede estar asignado a más de un usuario.
 
 ![relacionentretablasMucho_a_mucho](https://user-images.githubusercontent.com/71297040/165693158-245a906a-0024-4bdb-9422-dc325d8c16ba.png)
 
