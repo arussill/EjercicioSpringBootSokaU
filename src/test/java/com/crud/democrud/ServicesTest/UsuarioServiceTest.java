@@ -22,7 +22,7 @@ public class UsuarioServiceTest {
 
     @Test
     public void testGuardarUsuario(){
-        UsuarioModel usuarioModel=new UsuarioModel("aquaman","aqua@gmail.com",99);
+        UsuarioModel usuarioModel=new UsuarioModel();
         UsuarioModel usuarioModelRegistrado = usuarioRepository.save(usuarioModel);
         assertNotNull(usuarioModelRegistrado);
     }

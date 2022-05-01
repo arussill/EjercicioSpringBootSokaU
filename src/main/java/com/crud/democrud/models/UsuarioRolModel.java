@@ -16,10 +16,10 @@ public class UsuarioRolModel {
     private String rol;
     private String descripcion;
 
-    //    Relacion entre tablas
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "usuario_rol",unique = true)
-    private Set<UsuarioModel> id;
+    //    Relacion con entidad UsuarioModel
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "usuarioRol")
+    private UsuarioModel usuario;
 
     //    Constructores
     public UsuarioRolModel() {
@@ -53,11 +53,19 @@ public class UsuarioRolModel {
         this.descripcion = descripcion;
     }
 
-    public Set<UsuarioModel> getId() {
-        return id;
+    public Long getId_rol() {
+        return id_rol;
     }
 
-    public void setId(Set<UsuarioModel> id) {
-        this.id = id;
+    public void setId_rol(Long id_rol) {
+        this.id_rol = id_rol;
+    }
+
+    public UsuarioModel getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioModel usuario) {
+        this.usuario = usuario;
     }
 }
