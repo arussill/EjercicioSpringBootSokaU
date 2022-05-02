@@ -16,10 +16,10 @@ public class UsuarioModel {
     private String email;
     private Integer prioridad;
 
-//    Relacion con tabla rol
-            @ManyToOne(optional = false)
-            @JoinColumn(name="usuarioRol")
-            private UsuarioRolModel roles;
+    //    Relacion con tabla rol
+    @ManyToOne(optional = false)
+    @JoinColumn(name="usuarioRol")
+    private UsuarioRolModel roles;
 
     //    Constructor
 
