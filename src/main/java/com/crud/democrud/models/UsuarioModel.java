@@ -1,7 +1,7 @@
 package com.crud.democrud.models;
 
 import javax.persistence.*;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "usuario")
@@ -16,29 +16,26 @@ public class UsuarioModel {
     private String email;
     private Integer prioridad;
 
-    //    Relacion entre tablas
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-
-    @JoinTable(
-            name = "usuario_rol",
-            joinColumns = {@JoinColumn(name = "usuario_id")},
-            inverseJoinColumns = {@JoinColumn(name = "rol_id")}
-    )
-    private Set<UsuarioRolModel> rol;
+//    Relacion con tabla rol
+            @ManyToOne(optional = false)
+            @JoinColumn(name="usuarioRol")
+            private UsuarioRolModel roles;
 
     //    Constructor
-    public UsuarioModel(String nombre, String email, Integer prioridad) {
+
+    public UsuarioModel(Long id, String nombre, String email, Integer prioridad, UsuarioRolModel roles) {
+        this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.prioridad = prioridad;
+        this.roles = roles;
     }
 
     public UsuarioModel() {
 
     }
+
+
 //    Getters and Setters
 
     public void setPrioridad(Integer prioridad) {
@@ -69,9 +66,15 @@ public class UsuarioModel {
         return email;
     }
 
-
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public UsuarioRolModel getRoles() {
+        return roles;
+    }
+
+    public void setRoles(UsuarioRolModel roles) {
+        this.roles = roles;
+    }
 }

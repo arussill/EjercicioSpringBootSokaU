@@ -3,6 +3,7 @@ package com.crud.democrud.models;
 import javax.persistence.*;
 import java.util.Set;
 
+
 @Entity
 @Table(name = "rol")
 public class UsuarioRolModel {
@@ -10,41 +11,32 @@ public class UsuarioRolModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long id_rol;
+    private Long id;
 
     private String rol;
     private String descripcion;
-
-//    Relacion entre tablas
-
-    @ManyToMany(mappedBy = "rol")
-    private Set<UsuarioModel> usuario;
 
     //    Constructores
     public UsuarioRolModel() {
 
     }
 
-    public UsuarioRolModel(Long id_rol, String rol, String descripcion) {
-        this.id_rol = id_rol;
+    public UsuarioRolModel(Long id, String rol, String descripcion) {
+        this.id = id;
         this.rol = rol;
         this.descripcion = descripcion;
     }
 //    Getters and Setters
 
     public Long getIdRol() {
-        return id_rol;
+        return id;
     }
 
-    public void setIdRol(Long id_rol) {
-        this.id_rol = id_rol;
-    }
-
-    public String getRoll() {
+    public String getRol() {
         return rol;
     }
 
-    public void setRoll(String rol) {
+    public void setRol(String rol) {
         this.rol = rol;
     }
 
@@ -55,4 +47,13 @@ public class UsuarioRolModel {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public Long getId_rol() {
+        return id;
+    }
+
+    public void setId_rol(Long id) {
+        this.id = id;
+    }
+
 }

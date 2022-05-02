@@ -1,6 +1,6 @@
 package com.crud.democrud.services;
 
-import com.crud.democrud.models.UsuarioModel;
+
 import com.crud.democrud.models.UsuarioRolModel;
 import com.crud.democrud.repositories.UsuarioRolRepository;
 import org.springframework.beans.factory.annotation.Autowired;

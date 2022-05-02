@@ -31,5 +31,5 @@ public class UsuarioRolServiceTest {
         Optional<UsuarioRolModel> usuarioRolModelFind=usuarioRolRepository.findById(idRol);
         assertThat(usuarioRolModelFind.get().getIdRol()).isEqualTo(idRol);
     }
-
 }
+
