@@ -11,30 +11,25 @@ public class UsuarioRolModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Long id_rol;
+    private Long id;
 
     private String rol;
     private String descripcion;
-
-    //    Relacion con entidad UsuarioModel
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "usuarioRol")
-    private UsuarioModel usuario;
 
     //    Constructores
     public UsuarioRolModel() {
 
     }
 
-    public UsuarioRolModel(Long id_rol, String rol, String descripcion) {
-        this.id_rol = id_rol;
+    public UsuarioRolModel(Long id, String rol, String descripcion) {
+        this.id = id;
         this.rol = rol;
         this.descripcion = descripcion;
     }
 //    Getters and Setters
 
     public Long getIdRol() {
-        return id_rol;
+        return id;
     }
 
     public String getRol() {
@@ -54,18 +49,11 @@ public class UsuarioRolModel {
     }
 
     public Long getId_rol() {
-        return id_rol;
+        return id;
     }
 
-    public void setId_rol(Long id_rol) {
-        this.id_rol = id_rol;
+    public void setId_rol(Long id) {
+        this.id = id;
     }
 
-    public UsuarioModel getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioModel usuario) {
-        this.usuario = usuario;
-    }
 }
